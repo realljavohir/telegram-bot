@@ -86,6 +86,7 @@ async def bot_haqida(message: types.Message):
         "Ushbu bot sizga quyidagilarni taqdim etadi:\n"
         "🕌 Namoz vaqtlari\n"
         "🔢 Ramazon kun sanog‘i\n"
+        "🌙 Saharlik va Iftorlik vaqti\n"
         "📿 Saharlik va Iftorlik duolari\n"
         "🤲 Namoz duolari\n"
         "Bot 24/7 ishlaydi va qo'shimcha ma'lumot kerak bo'lsa @reall_javohir ga murojaat qilishingiz mumkin."
@@ -95,15 +96,13 @@ async def bot_haqida(message: types.Message):
 # ================== NAMOZ ==================
 @dp.message(lambda m: m.text=="🕌 Namoz vaqtlari")
 async def namoz_vaqti(message: types.Message):
-    city = await get_region(message.from_user.id)
-    times = get_prayer_times(city)
     text = (
-        f"📍 {city} namoz vaqtlari:\n\n"
-        f"Bomdod: {times['Fajr']}\n"
-        f"Peshin: {times['Dhuhr']}\n"
-        f"Asr: {times['Asr']}\n"
-        f"Shom: {times['Maghrib']}\n"
-        f"Xufton: {times['Isha']}"
+        f"📍 Xorazm namoz vaqtlari:\n\n"
+        f"Bomdod:   06:01\n"
+        f"Peshin:      13:10\n"
+        f"Asr: 	         16:18\n"
+        f"Shom:       18:48\n"
+        f"Xufton:     20:15"
     )
     await message.answer(text)
 
@@ -111,37 +110,37 @@ async def namoz_vaqti(message: types.Message):
 @dp.message(lambda m:m.text=="🌙 Saharlik Iftorlik")
 async def roza(message: types.Message):
     text=f"""🗓 Xorazm – 2026 Ramazon saharlik va iftorlik jadvali\n
-№   Kun     Saharlik  Iftorlik
-1   18‑fev  \t06:14   18:33
-2   19‑fev  \t06:13   18:34
-3   20‑fev  \t06:12   18:35
-4   21‑fev  \t06:11   18:37
-5   22‑fev  \t06:09   18:38
-6   23‑fev  \t06:08   18:39
-7   24‑fev  \t06:06   18:40
-8   25‑fev  \t06:05   18:41
-9   26‑fev  \t06:03   18:43
-10  27‑fev  \t06:02   18:44
-11  28‑fev  \t06:00   18:45
-12  1 ‑mart \t05:59   18:46
-13  2 ‑mart \t05:57   18:47
-14  3 ‑mart \t05:56   18:48
-15  4 ‑mart \t05:54   18:50
-16  5 ‑mart \t05:53   18:51
-17  6 ‑mart \t05:51   18:52
-18  7 ‑mart \t05:49   18:53
-19  8 ‑mart \t05:48   18:54
-20  9 ‑mart \t05:46   18:55
-21  10‑mart \t05:45   18:56
-22  11‑mart \t05:43   18:58
-23  12‑mart \t05:41   18:59
-24  13‑mart \t05:39   19:00
-25  14‑mart \t05:38   19:01
-26  15‑mart \t05:36   19:02
-27  16‑mart \t05:34   19:03
-28  17‑mart \t05:32   19:04
-29  18‑mart \t05:31   19:05
-30  19‑mart \t05:29   19:06"""
+Ramazon	  Sana	       Saharlik	  Iftorlik
+1-kun	        19-fevral   06:23   18:41
+2-kun	        20-fevral   06:22   18:43
+3-kun	        21-fevral   06:20   18:44
+4-kun	        22-fevral   06:19   18:45
+5-kun	        23-fevral   06:17   18:47
+6-kun	        24-fevral   06:16   18:48
+7-kun	        25-fevral   06:14   18:49
+8-kun	        26-fevral   06:13   18:51
+9-kun	        27-fevral   06:11   18:52
+10-kun	       28-fevral   06:09   18:54
+11-kun	        1-mart	     06:08   18:55
+12-kun	        2-mart	    06:06   18:56
+13-kun	        3-mart	    06:05   18:58
+14-kun	        4-mart	    06:03   18:59
+15-kun	        5-mart	    06:01   19:00
+16-kun	        6-mart	    05:59   19:02
+17-kun	        7-mart	    05:58   19:03
+18-kun	        8-mart	    05:56   19:04
+19-kun	        9-mart	    05:54   19:06
+20-kun	       10-mart	    05:53   19:07
+21-kun	        11-mart	    05:51   19:08
+22-kun	        12-mart	    05:49   19:10
+23-kun	        13-mart	    05:48   19:11
+24-kun	        14-mart	    05:46   19:12
+25-kun	        15-mart	    05:44   19:14
+26-kun         16-mart	    05:42   19:15
+27-kun	        17-mart	    05:41   19:16
+28-kun	        18-mart	    05:39   19:18
+29-kun	        19-mart	    05:37   19:19
+30-kun	        20-mart	    05:35   19:20"""
     await message.answer(text)
 
 # ================== RAMAZON KUN ==================
@@ -162,19 +161,19 @@ async def count(message:types.Message):
 @dp.message(lambda m:m.text=="📿 Saharlik duosi")
 async def sahar(message: types.Message):
     text="""
-Saharlik duosi
-Allohumma inni laka sumtu
-va bika aamantu
-va a'layka tavakkaltu
+Saharlik duosi📿
+Navaytu an asuma sovma shahri
+ramazona minal fajri ilal mag‘ribi,
+xolisan lillahi ta’ala. Allohu akbar.
 """
     await message.answer(text)
 
 @dp.message(lambda m:m.text=="📿 Iftorlik duosi")
 async def iftor(message: types.Message):
     text="""
-Iftorlik duosi
-Allohumma laka sumtu
-va ala rizqika aftartu
+Iftorlik duosi📿
+Allohumma laka sumtu va bika amantu
+va ’alayka tavakkaltu va ’ala rizqika aftartu, fag‘firli ya g‘offaru ma qoddamtu va ma axxortu.
 """
     await message.answer(text)
 
@@ -220,6 +219,7 @@ Agar 3 yoki 4 rakatli namoz bo‘lsa, o‘rta rakatda qisqa tashahhud, oxirida t
 🔟 Salom
 O‘ngga va chapga qarab:
 “Assalamu ‘alaykum wa rahmatullah”
+
 Namozdan keyingi qisqa duolar:
 Istig‘for: Astag‘firulloh (3 marta).
 Salom duosi: Allohumma antas-salam va minkas-salam, tabarokta ya zal-jalali val-ikrom.
