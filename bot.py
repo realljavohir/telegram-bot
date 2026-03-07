@@ -144,7 +144,7 @@ Ramazon	  Sana	       Saharlik	  Iftorlik
     await message.answer(text)
 
 # ================== RAMAZON KUN ==================
-RAMAZON_START=date(2026,2,18)
+RAMAZON_START=date(2026,2,19)
 @dp.message(lambda m:m.text=="🔢 Ramazon kun sanog‘i")
 async def count(message:types.Message):
     today=date.today()
